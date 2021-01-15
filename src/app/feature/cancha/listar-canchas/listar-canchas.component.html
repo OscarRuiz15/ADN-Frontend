@@ -1,0 +1,37 @@
+<div class="row">
+
+  <div class="col-lg-12">
+
+    <div class="padding-container justify-content-center">
+
+      <h2 class="color-t" [hidden]="!mostrarTabla()">No hay ninguna cancha registrada.</h2>
+      <h2 class="color-t" [hidden]="mostrarTabla()">Canchas registradas</h2>
+
+      <table class="table" [hidden]="mostrarTabla()">
+        <thead class="table-dark">
+        <tr style="text-align: center;">
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Teléfono</th>
+          <th>Tipo de Cancha</th>
+          <th>Precio por reserva</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cancha of canchas" style="text-align: center;">
+          <td>{{cancha.codigo}}</td>
+          <td>{{cancha.nombre}}</td>
+          <td>{{cancha.direccion}}</td>
+          <td>{{cancha.telefono}}</td>
+          <td>{{cancha.tipoCancha}}</td>
+          <td>{{cancha.precioReserva}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
