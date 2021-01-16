@@ -1,1 +1,96 @@
-<p>agregar-reserva works!</p>
+<div class="row">
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Realizar reserva</h4>
+        <form class="form p-t-20" [formGroup]="formularioReserva" (ngSubmit)="agregarReserva()" #ngForm="ngForm">
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="fechaInicioReserva">Date:</label>
+                <div class="input-group">
+
+                  <input formControlName="fechaInicioReserva" id="fechaInicioReserva" type="text" class="form-control"
+                         aria-label="Date"
+                         required dlDateTimeInput [(ngModel)]="fechaSeleccionada">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle date-dropdown" type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" (click)="abrirDataPicker()"><i
+                      class="oi oi-calendar"></i></button>
+
+                    <div class="dropdown-menu" (click)="keepDropDownOpen($event)" [hidden]="cerrar">
+                      <div style="width:360px;">
+                        <dl-date-time-picker [(ngModel)]="fechaSeleccionada"
+                                             (change)="dateSelected($event)"
+                                             [selectFilter]="datePickerFilter"
+                                             [ngModelOptions]="{standalone: true}">
+                        </dl-date-time-picker>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-control-feedback"
+                     *ngIf="erroresService.errores(formularioReserva, 'fechaInicioReserva', ngForm).hayErrores">
+                  Debe seleccionar una fecha
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <div class="col">
+              <label for="cancha">Cliente:</label>
+              <select class="form-control" formControlName="cliente" id="cliente" ngModel="">
+                <option value="" selected disabled>Seleccione un cliente</option>
+                <option [ngValue]="cliente" *ngFor="let cliente of clientes">{{cliente.cedula}}
+                  - {{cliente.nombre}}</option>
+              </select>
+              <div class="form-control-feedback"
+                   *ngIf="erroresService.errores(formularioReserva, 'cliente', ngForm).hayErrores">
+                Debe seleccionar un cliente
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col">
+              <label for="cancha">Cancha:</label>
+              <select class="form-control" formControlName="cancha" id="cancha" ngModel="">
+                <option value="" selected disabled>Seleccione una cancha</option>
+                <option [ngValue]="cancha" *ngFor="let cancha of canchas">{{cancha.codigo}} - {{cancha.nombre}}</option>
+              </select>
+              <div class="form-control-feedback"
+                   *ngIf="erroresService.errores(formularioReserva, 'cancha', ngForm).hayErrores">
+                Debe seleccionar una cancha
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="precioReserva">Precio por reservar:</label>
+              <input name="precioReserva" id="precioReserva" type="text" disabled
+                     class="form-control" [value]="precioReservaCanchaElegida() | currency">
+            </div>
+
+          </div>
+
+          <br>
+
+          <button type="button" class="btn btn-danger mr-2" (click)="regresar()">
+            <i class="fa fa-undo"></i> Regresar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save"></i> Registrar
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
