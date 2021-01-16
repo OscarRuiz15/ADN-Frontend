@@ -5,6 +5,7 @@ import {ClienteService} from '../../../shared/services/cliente.service';
 import {SwalService} from '../../../shared/services/swal.service';
 import {Icon} from '../../../shared/enum/icon.enum';
 import {Router} from '@angular/router';
+import {ErroresService} from '../../../shared/services/errores.service';
 
 @Component({
   selector: 'app-agregar-cliente',
@@ -17,7 +18,8 @@ export class AgregarClienteComponent implements OnInit {
 
   constructor(private clienteService: ClienteService,
               private swalService: SwalService,
-              private router: Router) {
+              private router: Router,
+              public erroresService: ErroresService) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   agregarCliente(): void {
+
     if (this.formularioCliente.valid) {
 
       const cliente = new Cliente(
@@ -41,7 +44,7 @@ export class AgregarClienteComponent implements OnInit {
       this.clienteService.almacenarcliente(cliente).subscribe(
         () => {
           this.swalService.alert('Éxito', 'El cliente ha sido registrado');
-          this.router.navigate(['/clientes']);
+          this.regresar();
         },
         (error) => {
           this.swalService.alert('Error', error.error.mensaje, Icon.WARNING);
@@ -50,5 +53,9 @@ export class AgregarClienteComponent implements OnInit {
     } else {
       return;
     }
+  }
+
+  regresar(): void {
+    this.router.navigate(['/clientes']);
   }
 }

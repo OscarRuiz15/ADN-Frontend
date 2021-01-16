@@ -4,47 +4,54 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Registrar nuevo cliente</h4>
-        <form ngNativeValidate class="form p-t-20" [formGroup]="formularioCliente" (ngSubmit)="agregarCliente()">
+        <form class="form p-t-20" [formGroup]="formularioCliente" (ngSubmit)="agregarCliente()" #ngForm="ngForm">
 
-          <div class="form-group">
-            <label>Nombre</label>
-            <div class="input-group">
-              <div class="input-group-addon"></div>
-              <input formControlName="nombre" name="nombre" type="text" class="form-control"
-                     placeholder="Nombre" required>
+          <div class="row">
+            <div class="col">
+              <label for="nombre">Nombre:</label>
+              <input formControlName="nombre" name="nombre" id="nombre" type="text" class="form-control" required>
+              <div class="form-control-feedback"
+                   *ngIf="erroresService.errores(formularioCliente, 'nombre', ngForm).hayErrores">
+                Debe ingresar un nombre
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="correo">Correo electronico:</label>
+              <input formControlName="correo" name="correo" id="correo" type="email" class="form-control">
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Correo electronico</label>
-            <div class="input-group">
-              <div class="input-group-addon"></div>
-              <input formControlName="correo" name="correo" type="email"
-                     class="form-control"
-                     placeholder="Correo electronico">
+          <br>
+
+          <div class="row">
+            <div class="col">
+              <label for="telefono">Teléfono / Celular:</label>
+              <input formControlName="telefono" name="telefono" id="telefono" type="number" class="form-control"
+                     required>
+              <div class="form-control-feedback"
+                   *ngIf="erroresService.errores(formularioCliente, 'telefono', ngForm).hayErrores">
+                Debe ingresar un número de teléfono o celular
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="cedula">Cédula:</label>
+              <input formControlName="cedula" name="cedula" id="cedula" type="number" class="form-control" required>
+              <div class="form-control-feedback"
+                   *ngIf="erroresService.errores(formularioCliente, 'cedula', ngForm).hayErrores">
+                Debe ingresar un número de cédula
+              </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Teléfono / Celular</label>
-            <div class="input-group">
-              <div class="input-group-addon"></div>
-              <input formControlName="telefono" name="telefono" type="number" class="form-control"
-                     placeholder="Teléfono / Celular" required>
-            </div>
-          </div>
+          <br>
 
-          <div class="form-group">
-            <label>Cédula</label>
-            <div class="input-group">
-              <div class="input-group-addon"></div>
-              <input formControlName="cedula" name="cedula" type="number" class="form-control"
-                     placeholder="Cédula" required>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
-            Registrar
+          <button type="button" class="btn btn-danger mr-2" (click)="regresar()">
+            <i class="fa fa-undo"></i> Regresar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save"></i> Registrar
           </button>
 
         </form>
@@ -53,5 +60,4 @@
   </div>
 
 </div>
-
 
