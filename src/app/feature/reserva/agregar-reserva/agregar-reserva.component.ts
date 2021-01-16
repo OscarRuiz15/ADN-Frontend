@@ -25,6 +25,7 @@ moment.locale('es');
 })
 export class AgregarReservaComponent implements OnInit {
 
+  diasCobroAdicional: [] = [5, 6, 0];
   fechaSeleccionada: Date = new Date();
   fechaInicioReserva: string;
   formularioReserva: FormGroup;
@@ -86,6 +87,17 @@ export class AgregarReservaComponent implements OnInit {
       return this.formularioReserva.controls.cancha.value.precioReserva;
     }
     return 0;
+  }
+
+  valorPagarCanchaElegida(): number {
+    if (this.formularioReserva.controls.cancha.value) {
+      const fechaElegida = new Date(this.formularioReserva.controls.fechaInicioReserva.value);
+      if (this.diasCobroAdicional.indexOf(fechaElegida.getDay()) >= 0) {
+        return this.formularioReserva.controls.cancha.value.precioReserva +
+          (this.formularioReserva.controls.cancha.value.precioReserva * .1);
+      }
+    }
+    return this.formularioReserva.controls.cancha.value.precioReserva;
   }
 
   regresar(): void {
