@@ -25,7 +25,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/bootstrap.min.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/spinners.css",
+              "src/assets/scss/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.5.1.slim.min.js",

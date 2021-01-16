@@ -9,7 +9,7 @@ import {ReservaService} from '../reserva.service';
 })
 export class ListarReservaComponent implements OnInit {
 
-  reservas: Reserva[];
+  reservas: Reserva[] = [];
 
   constructor(private reservaService: ReservaService) {
   }

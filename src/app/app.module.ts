@@ -5,7 +5,9 @@ import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {FeatureModule} from './feature/feature.module';
 import {AppRoutingModule} from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {LoaderComponent} from './core/loader/loader.component';
+import {LoaderInterceptorService} from './core/loader/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,18 @@ import {HttpClientModule} from '@angular/common/http';
     FeatureModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }]
+  ],
   bootstrap: [
     AppComponent
+  ],
+  entryComponents: [
+    LoaderComponent
   ]
 })
 

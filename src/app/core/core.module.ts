@@ -3,12 +3,14 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {InicioComponent} from './inicio/inicio.component';
 import {AppRoutingModule} from '../app-routing.module';
+import {LoaderComponent} from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    InicioComponent
+    InicioComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -16,6 +18,7 @@ import {AppRoutingModule} from '../app-routing.module';
   ],
   exports: [
     HeaderComponent,
+    LoaderComponent
   ]
 })
 export class CoreModule {

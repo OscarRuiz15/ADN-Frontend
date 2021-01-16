@@ -5,6 +5,7 @@ import {SwalService} from '../../../shared/services/swal.service';
 import {Router} from '@angular/router';
 import {Cancha} from '../../../shared/models/cancha';
 import {Icon} from '../../../shared/enum/icon.enum';
+import {ErroresService} from '../../../shared/services/errores.service';
 
 @Component({
   selector: 'app-agregar-cancha',
@@ -17,7 +18,8 @@ export class AgregarCanchaComponent implements OnInit {
 
   constructor(private canchaService: CanchaService,
               private swallService: SwalService,
-              private router: Router) {
+              private router: Router,
+              public erroresService: ErroresService) {
   }
 
   ngOnInit(): void {
@@ -32,7 +34,6 @@ export class AgregarCanchaComponent implements OnInit {
   }
 
   agregarCancha(): void {
-    console.log(this.formulariCancha.value);
     if (this.formulariCancha.valid) {
 
       const cancha = new Cancha(
@@ -47,7 +48,7 @@ export class AgregarCanchaComponent implements OnInit {
       this.canchaService.agregarCancha(cancha).subscribe(
         () => {
           this.swallService.alert('Éxito', 'La cancha ha sido registrada');
-          this.router.navigate(['/canchas']);
+          this.regresar();
         },
         (error) => {
           this.swallService.alert('Error', error.error.mensaje, Icon.WARNING);
@@ -57,6 +58,10 @@ export class AgregarCanchaComponent implements OnInit {
     } else {
       return;
     }
+  }
+
+  regresar(): void {
+    this.router.navigate(['/canchas']);
   }
 
 }

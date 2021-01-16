@@ -9,7 +9,7 @@ import {ClienteService} from 'src/app/shared/services/cliente.service';
 })
 export class ListarClientesComponent implements OnInit {
 
-  clientes: Cliente[];
+  clientes: Cliente[] = [];
 
   constructor(private clienteService: ClienteService) {
   }

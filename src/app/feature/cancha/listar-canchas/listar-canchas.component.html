@@ -1,37 +1,42 @@
-<div class="row">
+<div class="padding-container justify-content-center">
 
-  <div class="col-lg-12">
-
-    <div class="padding-container justify-content-center">
-
-      <h2 class="color-t" [hidden]="!mostrarTabla()">No hay ninguna cancha registrada.</h2>
-      <h2 class="color-t" [hidden]="mostrarTabla()">Canchas registradas</h2>
-
-      <table class="table" [hidden]="mostrarTabla()">
-        <thead class="table-dark">
-        <tr style="text-align: center;">
-          <th>Código</th>
-          <th>Nombre</th>
-          <th>Direccion</th>
-          <th>Teléfono</th>
-          <th>Tipo de Cancha</th>
-          <th>Precio por reserva</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let cancha of canchas" style="text-align: center;">
-          <td>{{cancha.codigo}}</td>
-          <td>{{cancha.nombre}}</td>
-          <td>{{cancha.direccion}}</td>
-          <td>{{cancha.telefono}}</td>
-          <td>{{cancha.tipoCancha}}</td>
-          <td>{{cancha.precioReserva}}</td>
-        </tr>
-        </tbody>
-      </table>
-
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Canchas registradas ({{canchas.length}})</h3>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+          <tr style="text-align: center;">
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Tipo de Cancha</th>
+            <th>Precio por reserva</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cancha of canchas" style="text-align: center;">
+            <td>{{cancha.codigo}}</td>
+            <td>{{cancha.nombre}}</td>
+            <td>{{cancha.direccion}}</td>
+            <td>{{cancha.telefono}}</td>
+            <td>{{cancha.tipoCancha | tipoCancha}}</td>
+            <td>{{cancha.precioReserva | currency}}</td>
+            <td>
+              <button class="btn btn-primary">
+                <i class="fa fa-save"></i>
+              </button>
+              <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
   </div>
 
 </div>
