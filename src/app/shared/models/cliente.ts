@@ -4,6 +4,6 @@ export class Cliente {
     public correo: string,
     public telefono: string,
     public cedula: string,
-    public id?: number) {
+    public id: number = 0) {
   }
 }

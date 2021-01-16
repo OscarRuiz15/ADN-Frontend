@@ -6,6 +6,6 @@ export class Cancha {
     public telefono: string,
     public tipoCancha: string,
     public precioReserva: number,
-    public id?: number) {
+    public id: number = 0) {
   }
 }

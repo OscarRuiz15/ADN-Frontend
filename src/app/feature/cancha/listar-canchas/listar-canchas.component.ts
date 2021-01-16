@@ -22,7 +22,7 @@ export class ListarCanchasComponent implements OnInit {
   }
 
   mostrarTabla(): boolean {
-    return this.canchas.length === 0;
+    return this.canchas !== undefined && this.canchas.length === 0;
   }
 
 }
