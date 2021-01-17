@@ -1,1 +1,38 @@
-<p>inicio works!</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Reserva de canchas sintéticas</h5>
+    <h6 class="card-subtitle mb-2 text-muted">ADN Ceiba</h6>
+    <p class="card-text">Desarrollado por Oscar Alexander Ruiz Palacio, con el fin de poner en práctica los
+      conocimientos aprendidos durante la Inducción de ADN Ceiba .</p>
+    <p class="card-text">Se desarrolló un Backend en Java con Spring Boot y una <a
+      href="https://medium.com/@edusalguero/arquitectura-hexagonal-59834bb44b7f" class="card-link">arquitectura
+      hexagonal</a> o también
+      conocida como el patron de puertos y adaptadores.</p>
+    <p class="card-text">El frontend fue desarrollado con Angular haciendo uso de la <a
+      href="https://angular.io/guide/styleguide#overall-structural-guidelines" class="card-link">arquitectura a 3
+      capas</a>
+      (core/shared/features).</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Descripción del problema de negocio ADN:</h5>
+    <li>Es posible el registro de canchas con la siguiente información: código, nombre, dirección, teléfono, tipo, y
+      precio por
+      reservar.
+    </li>
+    <li>Es posible el registro de clientes con la siguiente información: nombre, correo electrónico, teléfono y número
+      de cedula.
+    </li>
+    <li>Es posible reservar canchas dado una fecha de reserva, una cancha y un cliente.</li>
+    <li>Las reservas no se puede realizar por un mismo cliente para una misma fecha en una misma cancha ya reservada
+      anteriormente.
+    </li>
+    <li>Las reservas no se puede realizar para el día actual.</li>
+    <li>Las reservas se realizan por el tiempo de una hora.</li>
+    <li>Si la reserva se realiza para los días viernes, sábados o domingos, se cobrará un 10% adicional al valor del
+      precio por reservar.
+    </li>
+  </div>
+</div>
