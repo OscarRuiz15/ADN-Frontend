@@ -46,7 +46,7 @@ export class SwalService {
     }
     } = {},
     showCancelButton = true
-  ) {
+  ): Promise<any> {
     this.iniciarObservablesConfirm();
     return Swal.fire({
       title,
@@ -70,7 +70,7 @@ export class SwalService {
     });
   }
 
-  iniciarObservablesConfirm() {
+  iniciarObservablesConfirm(): void {
     this.clickConfirm = new EventEmitter();
     this.clickCancel = new EventEmitter();
   }

@@ -46,7 +46,7 @@ export class ListarReservaComponent implements OnInit {
   eliminarReserva(id: number): void {
     this.reservaService.eliminarReserva(id).subscribe(
       () => {
-        this.swallService.alert('Éxito', 'El registro ha sido eliminado');
+        this.swallService.alert('Éxito', 'La reserva ha sido eliminado');
         this.listarReservas();
       },
       (error) => this.swallService.alert('Error', error.error.mensaje, Icon.ERROR)
