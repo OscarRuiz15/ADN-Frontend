@@ -29,10 +29,7 @@
             <td>{{reserva.fechaFinReserva}}</td>
             <td>{{reserva.valorPago | currency}}</td>
             <td>
-              <button class="btn btn-primary">
-                <i class="fa fa-save"></i>
-              </button>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" (click)="confirmar(reserva.id)">
                 <i class="fa fa-trash"></i>
               </button>
             </td>

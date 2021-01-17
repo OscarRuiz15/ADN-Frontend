@@ -23,4 +23,8 @@ export class ReservaService {
   almacenarReserva(reserva: Reserva): Observable<Reserva> {
     return this.http.post<Reserva>(apiReserva, reserva, httpOptions).pipe();
   }
+
+  eliminarReserva(id: number): Observable<Reserva> {
+    return this.http.delete<Reserva>(`${apiReserva}/${id}`, httpOptions).pipe();
+  }
 }

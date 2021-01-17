@@ -13,7 +13,6 @@ import {DateButton} from 'angular-bootstrap-datetimepicker';
 import * as _moment from 'moment';
 import {unitOfTime} from 'moment';
 import {Reserva} from '../../../shared/models/reserva';
-import {formatDate} from '@angular/common';
 
 const moment = _moment;
 moment.locale('es');
@@ -25,7 +24,7 @@ moment.locale('es');
 })
 export class AgregarReservaComponent implements OnInit {
 
-  diasCobroAdicional: [] = [5, 6, 0];
+  diasCobroAdicional = [5, 6, 0];
   fechaSeleccionada: Date = new Date();
   fechaInicioReserva: string;
   formularioReserva: FormGroup;
@@ -54,7 +53,7 @@ export class AgregarReservaComponent implements OnInit {
   agregarReserva(): void {
     if (this.formularioReserva.valid) {
       const reserva = new Reserva(
-        formatDate(this.formularioReserva.value.fechaInicioReserva, 'yyyy-MM-dd H:m', 'en_ES'),
+        this.formularioReserva.value.fechaInicioReserva,
         this.formularioReserva.value.cancha,
         this.formularioReserva.value.cliente,
       );
@@ -127,9 +126,9 @@ export class AgregarReservaComponent implements OnInit {
     }
   }
 
-  datePickerFilter = (dateButton: DateButton, viewName: string) => {
+  datePickerFilter(dateButton: DateButton, viewName: string): boolean {
     return dateButton.value >= moment().startOf(viewName as unitOfTime.StartOf).valueOf();
-  };
+  }
 
   abrirDataPicker(): void {
     this.cerrar = false;
