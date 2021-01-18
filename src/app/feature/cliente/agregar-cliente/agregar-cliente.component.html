@@ -37,7 +37,8 @@
 
             <div class="col">
               <label for="cedula">Cédula:</label>
-              <input formControlName="cedula" name="cedula" id="cedula" type="number" class="form-control" required>
+              <input formControlName="cedula" name="cedula" id="cedula" type="number" class="form-control" required
+                     [attr.disabled]="cliente">
               <div class="form-control-feedback"
                    *ngIf="erroresService.errores(formularioCliente, 'cedula', ngForm).hayErrores">
                 Debe ingresar un número de cédula

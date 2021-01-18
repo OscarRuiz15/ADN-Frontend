@@ -9,7 +9,8 @@
           <div class="row">
             <div class="col">
               <label for="codigo">Código:</label>
-              <input formControlName="codigo" name="codigo" id="codigo" type="text" class="form-control" required>
+              <input formControlName="codigo" name="codigo" id="codigo" type="text" class="form-control" required
+                     [attr.disabled]="cancha">
               <div class="form-control-feedback"
                    *ngIf="erroresService.errores(formulariCancha, 'codigo', ngForm).hayErrores">
                 Debe ingresar un código
@@ -56,8 +57,8 @@
 
             <div class="col">
               <label for="tipoCancha">Tipo de cancha:</label>
-              <select class="form-control" formControlName="tipoCancha" id="tipoCancha" ngModel="">
-                <option value="" selected disabled>Seleccione un tipo</option>
+              <select class="form-control" formControlName="tipoCancha" id="tipoCancha" [value]="">
+                <option value="" [selected]="!cancha" disabled>Seleccione un tipo</option>
                 <option value="FUTBOL_CINCO">Fútbol Cinco</option>
                 <option value="FUTBOL_SEIS">Fútbol Seis</option>
                 <option value="FUTBOL_SIETE">Fútbol Siete</option>

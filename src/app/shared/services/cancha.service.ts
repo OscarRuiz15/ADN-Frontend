@@ -10,6 +10,8 @@ import {apiCancha, httpOptions} from '../config/end-points';
 })
 export class CanchaService {
 
+  cancha: Cancha = null;
+
   constructor(private http: HttpClient) {
   }
 
@@ -23,5 +25,9 @@ export class CanchaService {
 
   agregarCancha(cancha: Cancha): Observable<Cancha> {
     return this.http.post<Cancha>(apiCancha, cancha, httpOptions).pipe();
+  }
+
+  actualizarCancha(cancha: Cancha): Observable<Cancha> {
+    return this.http.put<Cancha>(apiCancha, cancha, httpOptions).pipe();
   }
 }

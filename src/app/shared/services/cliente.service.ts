@@ -9,6 +9,8 @@ import {apiCliente, httpOptions} from '../config/end-points';
 })
 export class ClienteService {
 
+  cliente: Cliente = null;
+
   constructor(private http: HttpClient) {
   }
 
@@ -20,7 +22,11 @@ export class ClienteService {
     return this.http.get<Cliente>(`${apiCliente}/${cedula}`, httpOptions).pipe();
   }
 
-  almacenarcliente(cliente: Cliente): Observable<Cliente> {
+  almacenarCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(apiCliente, cliente, httpOptions).pipe();
+  }
+
+  actualizarCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(apiCliente, cliente, httpOptions).pipe();
   }
 }

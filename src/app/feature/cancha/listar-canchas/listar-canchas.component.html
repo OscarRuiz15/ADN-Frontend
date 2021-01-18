@@ -25,8 +25,8 @@
             <td>{{cancha.tipoCancha | tipoCancha}}</td>
             <td>{{cancha.precioReserva | currency}}</td>
             <td>
-              <button class="btn btn-primary">
-                <i class="fa fa-save"></i>
+              <button class="btn btn-primary" (click)="actualizarCancha(cancha)">
+                <i class="fa fa-edit"></i>
               </button>
             </td>
           </tr>

@@ -15,21 +15,23 @@ import {ErroresService} from '../../../shared/services/errores.service';
 export class AgregarCanchaComponent implements OnInit {
 
   formulariCancha: FormGroup;
+  cancha: Cancha;
 
   constructor(private canchaService: CanchaService,
               private swallService: SwalService,
               private router: Router,
               public erroresService: ErroresService) {
+    this.cancha = this.canchaService.cancha;
   }
 
   ngOnInit(): void {
     this.formulariCancha = new FormGroup({
-      codigo: new FormControl(null, Validators.required),
-      nombre: new FormControl(null, Validators.required),
-      direccion: new FormControl(null, Validators.required),
-      telefono: new FormControl(null, Validators.required),
-      tipoCancha: new FormControl(null, Validators.required),
-      precioReserva: new FormControl('', Validators.required),
+      codigo: new FormControl(this.cancha !== null ? this.cancha.codigo : null, Validators.required),
+      nombre: new FormControl(this.cancha !== null ? this.cancha.nombre : null, Validators.required),
+      direccion: new FormControl(this.cancha !== null ? this.cancha.direccion : null, Validators.required),
+      telefono: new FormControl(this.cancha !== null ? this.cancha.telefono : null, Validators.required),
+      tipoCancha: new FormControl(this.cancha !== null ? this.cancha.tipoCancha : null, Validators.required),
+      precioReserva: new FormControl(this.cancha !== null ? this.cancha.precioReserva : null, Validators.required),
     });
   }
 
@@ -45,22 +47,33 @@ export class AgregarCanchaComponent implements OnInit {
         this.formulariCancha.value.precioReserva,
       );
 
-      this.canchaService.agregarCancha(cancha).subscribe(
-        () => {
-          this.swallService.alert('Éxito', 'La cancha ha sido registrada');
-          this.regresar();
-        },
-        (error) => {
-          this.swallService.alert('Error', error.error.mensaje, Icon.WARNING);
-        }
-      );
-
-    } else {
-      return;
+      if (this.cancha) {
+        cancha.id = this.canchaService.cancha.id;
+        this.canchaService.actualizarCancha(cancha).subscribe(
+          () => {
+            this.swallService.alert('Éxito', 'La cancha ha sido actualizada');
+            this.regresar();
+          },
+          (error) => {
+            this.swallService.alert('Error', error.error.mensaje, Icon.WARNING);
+          }
+        );
+      } else {
+        this.canchaService.agregarCancha(cancha).subscribe(
+          () => {
+            this.swallService.alert('Éxito', 'La cancha ha sido registrada');
+            this.regresar();
+          },
+          (error) => {
+            this.swallService.alert('Error', error.error.mensaje, Icon.WARNING);
+          }
+        );
+      }
     }
   }
 
   regresar(): void {
+    this.canchaService.cancha = null;
     this.router.navigate(['/canchas']);
   }
 

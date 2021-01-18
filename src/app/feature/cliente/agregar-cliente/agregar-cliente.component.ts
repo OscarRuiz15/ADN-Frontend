@@ -15,19 +15,21 @@ import {ErroresService} from '../../../shared/services/errores.service';
 export class AgregarClienteComponent implements OnInit {
 
   formularioCliente: FormGroup;
+  cliente: Cliente;
 
   constructor(private clienteService: ClienteService,
               private swalService: SwalService,
               private router: Router,
               public erroresService: ErroresService) {
+    this.cliente = this.clienteService.cliente;
   }
 
   ngOnInit(): void {
     this.formularioCliente = new FormGroup({
-      nombre: new FormControl(null, Validators.required),
-      correo: new FormControl(null),
-      telefono: new FormControl(null, Validators.required),
-      cedula: new FormControl(null, Validators.required),
+      nombre: new FormControl(this.cliente !== null ? this.cliente.nombre : null, Validators.required),
+      correo: new FormControl(this.cliente !== null ? this.cliente.correo : null),
+      telefono: new FormControl(this.cliente !== null ? this.cliente.telefono : null, Validators.required),
+      cedula: new FormControl(this.cliente !== null ? this.cliente.cedula : null, Validators.required),
     });
   }
 
@@ -41,21 +43,33 @@ export class AgregarClienteComponent implements OnInit {
         this.formularioCliente.value.telefono,
         this.formularioCliente.value.cedula);
 
-      this.clienteService.almacenarcliente(cliente).subscribe(
-        () => {
-          this.swalService.alert('Éxito', 'El cliente ha sido registrado');
-          this.regresar();
-        },
-        (error) => {
-          this.swalService.alert('Error', error.error.mensaje, Icon.WARNING);
-        }
-      );
-    } else {
-      return;
+      if (this.cliente) {
+        cliente.id = this.clienteService.cliente.id;
+        this.clienteService.actualizarCliente(cliente).subscribe(
+          () => {
+            this.swalService.alert('Éxito', 'El cliente ha sido actualizado');
+            this.regresar();
+          },
+          (error) => {
+            this.swalService.alert('Error', error.error.mensaje, Icon.WARNING);
+          }
+        );
+      } else {
+        this.clienteService.almacenarCliente(cliente).subscribe(
+          () => {
+            this.swalService.alert('Éxito', 'El cliente ha sido registrado');
+            this.regresar();
+          },
+          (error) => {
+            this.swalService.alert('Error', error.error.mensaje, Icon.WARNING);
+          }
+        );
+      }
     }
   }
 
   regresar(): void {
+    this.clienteService.cliente = null;
     this.router.navigate(['/clientes']);
   }
 }

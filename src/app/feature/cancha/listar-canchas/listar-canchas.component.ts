@@ -3,6 +3,7 @@ import {Cancha} from 'src/app/shared/models/cancha';
 import {CanchaService} from 'src/app/shared/services/cancha.service';
 import {SwalService} from '../../../shared/services/swal.service';
 import {Icon} from '../../../shared/enum/icon.enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-listar-canchas',
@@ -14,7 +15,8 @@ export class ListarCanchasComponent implements OnInit {
   canchas: Cancha[] = [];
 
   constructor(private canchaService: CanchaService,
-              private swallService: SwalService) {
+              private swallService: SwalService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,6 +28,11 @@ export class ListarCanchasComponent implements OnInit {
 
   mostrarTabla(): boolean {
     return this.canchas.length === 0;
+  }
+
+  actualizarCancha(cancha: Cancha): void {
+    this.canchaService.cancha = cancha;
+    this.router.navigate(['/canchas/agregar']);
   }
 
 }
