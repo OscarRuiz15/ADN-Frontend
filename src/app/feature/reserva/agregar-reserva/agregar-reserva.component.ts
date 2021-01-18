@@ -13,6 +13,7 @@ import {DateButton} from 'angular-bootstrap-datetimepicker';
 import * as _moment from 'moment';
 import {unitOfTime} from 'moment';
 import {Reserva} from '../../../shared/models/reserva';
+import {formatDate} from '@angular/common';
 
 const moment = _moment;
 moment.locale('es');
@@ -53,7 +54,7 @@ export class AgregarReservaComponent implements OnInit {
   agregarReserva(): void {
     if (this.formularioReserva.valid) {
       const reserva = new Reserva(
-        this.formularioReserva.value.fechaInicioReserva,
+        formatDate(this.formularioReserva.value.fechaInicioReserva, 'yyyy-MM-dd H:m', 'en_ES'),
         this.formularioReserva.value.cancha,
         this.formularioReserva.value.cliente,
       );
