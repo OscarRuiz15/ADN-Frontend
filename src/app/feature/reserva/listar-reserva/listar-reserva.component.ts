@@ -24,7 +24,7 @@ export class ListarReservaComponent implements OnInit {
   listarReservas(): void {
     this.reservaService.listarReservas().subscribe(
       (data: Reserva[]) => this.reservas = data,
-      (error) => console.log(error)
+      (error) => this.swallService.alert('Error', error.error.mensaje, Icon.ERROR)
     );
   }
 
