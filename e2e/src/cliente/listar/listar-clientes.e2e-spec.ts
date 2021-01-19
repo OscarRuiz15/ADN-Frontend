@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import {ListarClientesPo} from './listar-clientes.po';
 
 describe('Listar los registros clientes', () => {
@@ -12,6 +13,7 @@ describe('Listar los registros clientes', () => {
   it('Deberia mostrar la tabla de clientes', async () => {
     // arrange
     await listarClientesPo.navigateTo(URL_LISTAR_CLIENTES);
+    await browser.sleep(500)
 
     // act
     const textoTitulo = await listarClientesPo.getTextoDelTitulo();
