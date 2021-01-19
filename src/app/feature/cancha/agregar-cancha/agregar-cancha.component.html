@@ -59,13 +59,13 @@
               <label for="tipoCancha">Tipo de cancha:</label>
               <select class="form-control" formControlName="tipoCancha" id="tipoCancha" [value]="">
                 <option value="" [selected]="!cancha" disabled>Seleccione un tipo</option>
-                <option value="FUTBOL_CINCO">Fútbol Cinco</option>
-                <option value="FUTBOL_SEIS">Fútbol Seis</option>
-                <option value="FUTBOL_SIETE">Fútbol Siete</option>
-                <option value="FUTBOL_OCHO">Fútbol Ocho</option>
-                <option value="FUTBOL_NUEVE">Fútbol Nueve</option>
-                <option value="FUTBOL_DIEZ">Fútbol Diez</option>
-                <option value="FUTBOL_ONCE">Fútbol Once</option>
+                <option value="FUTBOL_CINCO" id="FUTBOL_CINCO">Fútbol Cinco</option>
+                <option value="FUTBOL_SEIS" id="FUTBOL_SEIS">Fútbol Seis</option>
+                <option value="FUTBOL_SIETE" id="FUTBOL_SIETE">Fútbol Siete</option>
+                <option value="FUTBOL_OCHO" id="FUTBOL_OCHO">Fútbol Ocho</option>
+                <option value="FUTBOL_NUEVE" id="FUTBOL_NUEVE">Fútbol Nueve</option>
+                <option value="FUTBOL_DIEZ" id="FUTBOL_DIEZ">Fútbol Diez</option>
+                <option value="FUTBOL_ONCE" id="FUTBOL_ONCE">Fútbol Once</option>
               </select>
               <div class="form-control-feedback"
                    *ngIf="erroresService.errores(formulariCancha, 'tipoCancha', ngForm).hayErrores">
@@ -89,7 +89,7 @@
           <button type="button" class="btn btn-danger mr-2" (click)="regresar()">
             <i class="fa fa-undo"></i> Regresar
           </button>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn btn-primary" id="registrar">
             <i class="fa fa-save"></i> Registrar
           </button>
 

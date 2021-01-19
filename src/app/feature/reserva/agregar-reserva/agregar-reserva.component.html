@@ -46,7 +46,7 @@
               <label for="cancha">Cliente:</label>
               <select class="form-control" formControlName="cliente" id="cliente" ngModel="">
                 <option value="" selected disabled>Seleccione un cliente</option>
-                <option [ngValue]="cliente" *ngFor="let cliente of clientes">{{cliente.cedula}}
+                <option [ngValue]="cliente" *ngFor="let cliente of clientes" [id]="cliente.cedula">{{cliente.cedula}}
                   - {{cliente.nombre}}</option>
               </select>
               <div class="form-control-feedback"
@@ -63,7 +63,8 @@
               <label for="cancha">Cancha:</label>
               <select class="form-control" formControlName="cancha" id="cancha" ngModel="">
                 <option value="" selected disabled>Seleccione una cancha</option>
-                <option [ngValue]="cancha" *ngFor="let cancha of canchas">{{cancha.codigo}} - {{cancha.nombre}}</option>
+                <option [ngValue]="cancha" *ngFor="let cancha of canchas" [id]="cancha.codigo">{{cancha.codigo}}
+                  - {{cancha.nombre}}</option>
               </select>
               <div class="form-control-feedback"
                    *ngIf="erroresService.errores(formularioReserva, 'cancha', ngForm).hayErrores">
@@ -95,7 +96,7 @@
           <button type="button" class="btn btn-danger mr-2" (click)="regresar()">
             <i class="fa fa-undo"></i> Regresar
           </button>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn btn-primary" id="registrar">
             <i class="fa fa-save"></i> Registrar
           </button>
 
