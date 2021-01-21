@@ -13,7 +13,7 @@ describe('Listar los registros reservas', () => {
   it('Deberia mostrar la tabla de reservas', async () => {
     // arrange
     await listarReservasPo.navigateTo(URL_LISTAR_RESERVAS);
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const textoTitulo = await listarReservasPo.getTextoDelTitulo();

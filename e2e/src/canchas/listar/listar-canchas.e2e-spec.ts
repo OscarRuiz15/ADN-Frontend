@@ -13,7 +13,7 @@ describe('Listar los registros canchas', () => {
   it('Deberia mostrar la tabla de canchas', async () => {
     // arrange
     await listarCanchasPo.navigateTo(URL_LISTAR_CANCHAS);
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const textoTitulo = await listarCanchasPo.getTextoDelTitulo();

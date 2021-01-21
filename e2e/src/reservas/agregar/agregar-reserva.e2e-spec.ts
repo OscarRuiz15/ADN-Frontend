@@ -15,17 +15,17 @@ describe('Crear un registro reserva', () => {
   it('Deberia retornar un error porque no se pueden realizar reservas el dia actual', async () => {
     // arrange
     await agregarReservaPo.clickSelectCliente();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarReservaPo.clickOpcionCliente(CLIENTE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarReservaPo.clickSelectCancha();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarReservaPo.clickOpcionCancha(CANCHA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarReservaPo.clickBotonRegistrar();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarReservaPo.esperarAlerta();
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const alerta = await agregarReservaPo.getTextoDeAlerta();

@@ -21,33 +21,33 @@ describe('Crear un registro de una cancha', () => {
   it('Deberia crear una cancha', async () => {
     // arrange
     await agregarCanchaPo.clickInputCodigo();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setCodigo(CODIGO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputNombre();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setNombre(NOMBRE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputDireccion();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setDireccion(DIRECCION);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputTelefono();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setTelefono(TELEFONO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickSelectTipoCancha();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickOpcionTipoCancha(TIPO_CANCHA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputPrecioReserva();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setPrecioReserva(PRECIO_RESERVA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickBotonRegistrar();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.esperarAlerta();
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const alerta = await agregarCanchaPo.getTextoDeAlerta();
@@ -59,33 +59,33 @@ describe('Crear un registro de una cancha', () => {
   it('Deberia retornar un error porque ya existe una cancha con el mismo codigo', async () => {
     // arrange
     await agregarCanchaPo.clickInputCodigo();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setCodigo(CODIGO_EXISTENTE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputNombre();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setNombre(NOMBRE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputDireccion();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setDireccion(DIRECCION);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputTelefono();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setTelefono(TELEFONO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickSelectTipoCancha();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickOpcionTipoCancha(TIPO_CANCHA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickInputPrecioReserva();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.setPrecioReserva(PRECIO_RESERVA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.clickBotonRegistrar();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarCanchaPo.esperarAlerta();
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const alerta = await agregarCanchaPo.getTextoDeAlerta();

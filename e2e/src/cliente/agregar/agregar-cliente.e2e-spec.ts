@@ -19,25 +19,25 @@ describe('Crear un registro de cliente', () => {
   it('Deberia crear un cliente', async () => {
     // arrange
     await agregarClientePo.clickInputNombre();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setNombre(NOMBRE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputCorreo();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setCorreo(CORREO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputTelefono();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setTelefono(TELEFONO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputCedula();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setCedula(CEDULA);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickBotonRegistrar();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.esperarAlerta();
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const alerta = await agregarClientePo.getTextoDeAlerta();
@@ -49,25 +49,25 @@ describe('Crear un registro de cliente', () => {
   it('Deberia retornar un error porque ya existe un cliente con la misma cedula', async () => {
     // arrange
     await agregarClientePo.clickInputNombre();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setNombre(NOMBRE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputCorreo();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setCorreo(CORREO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputTelefono();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setTelefono(TELEFONO);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickInputCedula();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.setCedula(CEDULA_EXISTENTE);
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.clickBotonRegistrar();
-    await browser.sleep(500)
+    await browser.sleep(500);
     await agregarClientePo.esperarAlerta();
-    await browser.sleep(500)
+    await browser.sleep(500);
 
     // act
     const alerta = await agregarClientePo.getTextoDeAlerta();
