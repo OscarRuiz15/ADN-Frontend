@@ -4,6 +4,7 @@ import {AgregarReservaComponent} from './agregar-reserva/agregar-reserva.compone
 import {ListarReservaComponent} from './listar-reserva/listar-reserva.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DlDateTimeDateModule, DlDateTimeInputModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
+import { ReservaRoutingModule } from './reserva-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {DlDateTimeDateModule, DlDateTimeInputModule, DlDateTimePickerModule} fro
     DlDateTimeInputModule,
     DlDateTimePickerModule,
     FormsModule,
+    ReservaRoutingModule
   ],
   exports: [
     AgregarReservaComponent,

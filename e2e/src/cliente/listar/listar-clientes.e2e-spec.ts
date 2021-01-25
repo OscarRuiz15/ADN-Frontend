@@ -4,7 +4,7 @@ import {ListarClientesPo} from './listar-clientes.po';
 describe('Listar los registros clientes', () => {
   let listarClientesPo: ListarClientesPo;
   const TITULO_TABLA = 'Clientes registrados ';
-  const URL_LISTAR_CLIENTES = 'clientes';
+  const URL_LISTAR_CLIENTES = 'clientes/listar';
 
   beforeEach(async () => {
     listarClientesPo = new ListarClientesPo();

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {AgregarClienteComponent} from './agregar-cliente/agregar-cliente.component';
 import {ListarClientesComponent} from './listar-clientes/listar-clientes.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ClienteRoutingModule } from './cliente-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClienteRoutingModule
   ],
   exports: [
     AgregarClienteComponent,

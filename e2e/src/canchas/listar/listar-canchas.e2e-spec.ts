@@ -4,7 +4,7 @@ import {ListarCanchasPo} from './listar-canchas.po';
 describe('Listar los registros canchas', () => {
   let listarCanchasPo: ListarCanchasPo;
   const TITULO_TABLA = 'Canchas registradas ';
-  const URL_LISTAR_CANCHAS = 'canchas';
+  const URL_LISTAR_CANCHAS = 'canchas/listar';
 
   beforeEach(async () => {
     listarCanchasPo = new ListarCanchasPo();

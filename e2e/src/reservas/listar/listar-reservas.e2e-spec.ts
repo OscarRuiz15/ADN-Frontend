@@ -4,7 +4,7 @@ import {ListarReservasPo} from './listar-reservas.po';
 describe('Listar los registros reservas', () => {
   let listarReservasPo: ListarReservasPo;
   const TITULO_TABLA = 'Reservas realizadas ';
-  const URL_LISTAR_RESERVAS = 'reservas';
+  const URL_LISTAR_RESERVAS = 'reservas/listar';
 
   beforeEach(async () => {
     listarReservasPo = new ListarReservasPo();
