@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Cliente} from 'src/app/shared/models/cliente';
 import {ClienteService} from 'src/app/shared/services/cliente.service';
 import {Router} from '@angular/router';
-import {SwalService} from '../../../shared/services/swal.service';
-import {Icon} from '../../../shared/enum/icon.enum';
+import {SwalService} from '@shared/services/swal.service';
+import {Icon} from '@shared/enum/icon.enum';
 
 @Component({
   selector: 'app-listar-clientes',

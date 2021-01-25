@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CanchaService} from '../../../shared/services/cancha.service';
-import {SwalService} from '../../../shared/services/swal.service';
+import {CanchaService} from '@shared/services/cancha.service';
+import {SwalService} from '@shared/services/swal.service';
 import {Router} from '@angular/router';
-import {Cancha} from '../../../shared/models/cancha';
-import {Icon} from '../../../shared/enum/icon.enum';
-import {ErroresService} from '../../../shared/services/errores.service';
+import {Cancha} from '@shared/models/cancha';
+import {Icon} from '@shared/enum/icon.enum';
+import {ErroresService} from '@shared/services/errores.service';
 
 @Component({
   selector: 'app-agregar-cancha',

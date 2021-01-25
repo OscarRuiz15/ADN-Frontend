@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Reserva} from 'src/app/shared/models/reserva';
 import {ReservaService} from '../reserva.service';
-import {Icon} from '../../../shared/enum/icon.enum';
-import {SwalService} from '../../../shared/services/swal.service';
+import {Icon} from '@shared/enum/icon.enum';
+import {SwalService} from '@shared/services/swal.service';
 
 @Component({
   selector: 'app-listar-reserva',

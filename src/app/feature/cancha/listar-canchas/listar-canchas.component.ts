@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Cancha} from 'src/app/shared/models/cancha';
 import {CanchaService} from 'src/app/shared/services/cancha.service';
-import {SwalService} from '../../../shared/services/swal.service';
-import {Icon} from '../../../shared/enum/icon.enum';
+import {SwalService} from '@shared/services/swal.service';
+import {Icon} from '@shared/enum/icon.enum';
 import {Router} from '@angular/router';
 
 @Component({

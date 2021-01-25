@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Cliente} from '../../../shared/models/cliente';
-import {ClienteService} from '../../../shared/services/cliente.service';
-import {SwalService} from '../../../shared/services/swal.service';
-import {Icon} from '../../../shared/enum/icon.enum';
+import {Cliente} from '@shared/models/cliente';
+import {ClienteService} from '@shared/services/cliente.service';
+import {SwalService} from '@shared/services/swal.service';
+import {Icon} from '@shared/enum/icon.enum';
 import {Router} from '@angular/router';
-import {ErroresService} from '../../../shared/services/errores.service';
+import {ErroresService} from '@shared/services/errores.service';
 
 @Component({
   selector: 'app-agregar-cliente',

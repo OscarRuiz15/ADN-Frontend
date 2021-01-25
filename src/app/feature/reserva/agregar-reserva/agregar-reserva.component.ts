@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ClienteService} from '../../../shared/services/cliente.service';
-import {CanchaService} from '../../../shared/services/cancha.service';
+import {ClienteService} from '@shared/services/cliente.service';
+import {CanchaService} from '@shared/services/cancha.service';
 import {ReservaService} from '../reserva.service';
-import {Cancha} from '../../../shared/models/cancha';
-import {Cliente} from '../../../shared/models/cliente';
-import {ErroresService} from '../../../shared/services/errores.service';
+import {Cancha} from '@shared/models/cancha';
+import {Cliente} from '@shared/models/cliente';
+import {ErroresService} from '@shared/services/errores.service';
 import {Router} from '@angular/router';
-import {SwalService} from '../../../shared/services/swal.service';
-import {Icon} from '../../../shared/enum/icon.enum';
+import {SwalService} from '@shared/services/swal.service';
+import {Icon} from '@shared/enum/icon.enum';
 import {DateButton} from 'angular-bootstrap-datetimepicker';
 import * as _moment from 'moment';
 import {unitOfTime} from 'moment';
-import {Reserva} from '../../../shared/models/reserva';
+import {Reserva} from '@shared/models/reserva';
 import {formatDate} from '@angular/common';
 
 const moment = _moment;
