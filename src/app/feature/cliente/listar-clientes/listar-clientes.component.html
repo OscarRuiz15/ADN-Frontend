@@ -4,9 +4,9 @@
     <div class="card">
       <div class="card-body">
         <h3 class="card-title">Clientes registrados ({{clientes.length}})</h3>
-        <table class="table table-hover">
+        <table class="table table-hover text-center">
           <thead class="thead-dark">
-          <tr style="text-align: center;">
+          <tr>
             <th>Nombre</th>
             <th>Correo electronico</th>
             <th>Teléfono</th>
@@ -15,7 +15,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cliente of clientes" style="text-align: center;">
+          <tr *ngFor="let cliente of clientes">
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.correo}}</td>
             <td>{{cliente.telefono}}</td>

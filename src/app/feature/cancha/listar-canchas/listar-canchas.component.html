@@ -4,9 +4,9 @@
     <div class="card">
       <div class="card-body">
         <h3 class="card-title">Canchas registradas ({{canchas.length}})</h3>
-        <table class="table table-hover">
+        <table class="table table-hover text-center">
           <thead class="thead-dark">
-          <tr style="text-align: center;">
+          <tr>
             <th>Código</th>
             <th>Nombre</th>
             <th>Dirección</th>
@@ -17,7 +17,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cancha of canchas" style="text-align: center;">
+          <tr *ngFor="let cancha of canchas">
             <td>{{cancha.codigo}}</td>
             <td>{{cancha.nombre}}</td>
             <td>{{cancha.direccion}}</td>
