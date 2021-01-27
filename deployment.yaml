@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: houssemdocker/angular-app:v1
+        image: oscarruiz15/reservascanchas-front:latest
         ports:
         - containerPort: 80
 ---
