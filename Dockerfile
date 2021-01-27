@@ -3,11 +3,11 @@ FROM node:latest as node
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build --pro
+RUN npm run build --prod
 
 # stage 2
 FROM nginx:alpine
-COPY --from=node /app/dist/reservascanchas-front /usr/share/nginx/html
+COPY --from=node /app/dist/reservascanchas /usr/share/nginx/html
 
 # FROM node:10-alpine
 # WORKDIR /app
