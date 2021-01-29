@@ -74,7 +74,7 @@ export class AgregarCanchaComponent implements OnInit {
 
   regresar(): void {
     this.canchaService.cancha = null;
-    this.router.navigate(['/canchas']);
+    this.router.navigate(['/canchas/listar']);
   }
 
 }

@@ -70,6 +70,6 @@ export class AgregarClienteComponent implements OnInit {
 
   regresar(): void {
     this.clienteService.cliente = null;
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/clientes/listar']);
   }
 }

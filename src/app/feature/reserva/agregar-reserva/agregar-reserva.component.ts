@@ -101,7 +101,7 @@ export class AgregarReservaComponent implements OnInit {
   }
 
   regresar(): void {
-    this.router.navigate(['/reservas']);
+    this.router.navigate(['/reservas/listar']);
   }
 
   keepDropDownOpen(event: Event): void {

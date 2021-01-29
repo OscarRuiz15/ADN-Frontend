@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlPrincipal: 'http://localhost:8080'
+  urlPrincipal: 'http://20.37.139.238:8080'
 };
